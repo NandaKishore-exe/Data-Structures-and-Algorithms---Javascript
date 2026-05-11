@@ -6,148 +6,79 @@
 
 ## 📂 Folder Structure
 
-```
+```bash
 DSA/
  ├── progress.md
- └── Phase-1-Fundamentals/
+ └── phase-1-fundamentals/
       ├── problems/
       └── notes/
+           └── pdf-notes/
 ```
+
+---
 
 # 📘 Phase 1: Fundamentals
 
-## 🎯 Objective
-
-Build strong programming fundamentals and understand how code behaves in terms of time and space.
-
----
-
-## 🧩 Programming Basics
-
-### 🔹 Input & Output
-
-- [ ] Understand `console.log`
-- [ ] Write functions with inputs and return values
-- [ ] Pass inputs manually and test outputs
-
----
-
-### 🔹 Conditional Statements
-
-- [ ] if / else
-- [ ] else if ladder
-- [ ] nested conditions
-
-**Practice**
-
-- [ ] Check even / odd
-- [ ] Largest of 3 numbers
-- [ ] Grade calculator
-
----
-
-### 🔹 Loops
-
-#### For Loop
-
-- [ ] Basic iteration
-- [ ] Reverse loop
-- [ ] Nested loops
-
-#### While Loop
-
-- [ ] Basic usage
-- [ ] When to use while vs for
-
-**Practice**
-
-- [ ] Print 1 to N
-- [ ] Print N to 1
-- [ ] Sum of first N numbers
-- [ ] Multiplication table
-- [ ] Count digits of a number
-
----
-
-### 🔹 Functions
-
-- [ ] Function declaration
-- [ ] Parameters & return values
-- [ ] Arrow functions
-
-**Practice**
-
-- [ ] Count digits
-- [ ] Check palindrome number
-
----
-
-### 🔹 Classes & Objects (Basic)
-
-- [ ] Understand objects
-- [ ] Create simple class
-- [ ] Constructor usage
-
----
-
-## 📊 Complexity Analysis (Core Concept)
+## 📊 Complexity Analysis
 
 ### 🔹 Order of Growth
 
-- [ ] Understand scaling of code
-
----
+- [x] Understand scaling of code
+- [x] Dominant term concept
+- [x] Ignore constants and lower-order terms
 
 ### 🔹 Asymptotic Analysis
 
-- [ ] Best case
-- [ ] Average case
-- [ ] Worst case
-
----
+- [x] Best case
+- [x] Average case
+- [x] Worst case
 
 ### 🔹 Big-O Notation
 
-- [ ] O(1)
-- [ ] O(n)
-- [ ] O(n²)
-- [ ] O(log n)
-
----
+- [x] O(1)
+- [x] O(n)
+- [x] O(n²)
+- [x] O(log n)
+- [x] O(n log n)
 
 ### 🔹 Theta (Θ)
 
-- [ ] Tight bound understanding
-
----
+- [x] Tight bound understanding
 
 ### 🔹 Omega (Ω)
 
-- [ ] Best case understanding
-
----
+- [x] Best case understanding
 
 ### 🔹 Time Complexity
 
-- [ ] Single loop
-- [ ] Nested loops
-- [ ] Multiple loops
+- [x] Single loop analysis
+- [x] Nested loop analysis
+- [x] Multiple loop analysis
+- [x] Add vs Multiply rule
+- [x] Loop pattern analysis
 
----
+### 🔹 Recursion Analysis
+
+- [x] Recursion basics
+- [x] Recurrence relation basics
+- [x] Recursive complexity analysis
 
 ### 🔹 Space Complexity
 
-- [ ] Variables
-- [ ] Arrays / objects
-- [ ] Constant vs linear space
+- [x] Constant space
+- [x] Linear space
+- [x] Auxiliary space
+- [x] Recursive stack space
 
 ---
 
-## 🧠 Mini Challenges (Must Complete)
+# 📝 PDF Notes Completed
 
-- [ ] Reverse a number
-- [ ] Count digits in a number
-- [ ] Palindrome number
-- [ ] Sum of array
+- [x] Order of Growth
+- [x] Complexity Analysis
+- [x] Asymptotic Notations
+- [x] Loop Analysis Patterns
+- [x] Recursion Analysis
+- [x] Space Complexity
 
 ---
