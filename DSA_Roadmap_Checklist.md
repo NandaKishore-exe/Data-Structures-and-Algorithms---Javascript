@@ -27,7 +27,7 @@
 | #   | Problem                          | Status | Pattern      | Notes      |
 | --- | -------------------------------- | ------ | ------------ | ---------- |
 | 1   | Remove Duplicates                | ✅     | Two Pointers | O(n), O(1) |
-| 2   | Remove Element                   | ⬜     |              |            |
+| 2   | Remove Element                   | ✅     |              |            |
 | 3   | Reverse String                   | ⬜     |              |            |
 | 4   | Best Time to Buy and Sell Stocks | ⬜     |              |            |
 | 5   | Merge Sorted Arrays              | ⬜     |              |            |
