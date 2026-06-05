@@ -4,7 +4,7 @@
 
 | Topic                         | Total | Done | Progress |
 | ----------------------------- | ----- | ---- | -------- |
-| Arrays                        | 9     | 6    | 67%      |
+| Arrays                        | 9     | 9    | 100%     |
 | Linked List                   | 14    | 0    | 0%       |
 | Strings                       | 12    | 0    | 0%       |
 | Stack & Queues                | 10    | 0    | 0%       |
@@ -18,7 +18,7 @@
 | Dynamic Programming           | 15    | 0    | 0%       |
 | Graphs                        | 10    | 0    | 0%       |
 
-**Overall:** 6 / 144 Problems Completed
+**Overall:** 9 / 144 Problems Completed
 
 ---
 
@@ -32,9 +32,9 @@
 | 4   | Best Time to Buy and Sell Stock | ✅     | Running Minimum / Prefix Minimum  | O(n)   | O(1)  |
 | 5   | Merge Sorted Array              | ✅     | Three Pointers (Reverse Merge)    | O(m+n) | O(1)  |
 | 6   | Move Zeroes                     | ✅     | Two Pointers (Array Compression)  | O(n)   | O(1)  |
-| 7   | Max Consecutive Ones            | ⬜     |                                   |        |       |
-| 8   | Missing Number                  | ⬜     |                                   |        |       |
-| 9   | Single Number                   | ⬜     |                                   |        |       |
+| 7   | Max Consecutive Ones            | ✅     | Running Count / Counting          | O(n)   | O(1)  |
+| 8   | Missing Number                  | ✅     | Mathematical Formula              | O(n)   | O(1)  |
+| 9   | Single Number                   | ✅     | XOR / Bit Manipulation            | O(n)   | O(1)  |
 
 ---
 
@@ -119,6 +119,87 @@ for (let i = 1; i < nums.length; i++) {
 
 ---
 
+## 5. Running Count / Counting
+
+Problems:
+
+- Max Consecutive Ones
+
+Template:
+
+```js
+let currentCount = 0;
+let maxCount = 0;
+
+for (let num of nums) {
+  if (num === target) {
+    currentCount++;
+    maxCount = Math.max(maxCount, currentCount);
+  } else {
+    currentCount = 0;
+  }
+}
+```
+
+---
+
+## 6. Mathematical Formula
+
+Problems:
+
+- Missing Number
+
+Template:
+
+```js
+let n = nums.length;
+
+let expectedSum = (n * (n + 1)) / 2;
+
+let actualSum = nums.reduce((sum, num) => sum + num, 0);
+
+return expectedSum - actualSum;
+```
+
+---
+
+## 7. XOR / Bit Manipulation
+
+Problems:
+
+- Single Number
+
+Template:
+
+```js
+let result = 0;
+
+for (let num of nums) {
+  result ^= num;
+}
+
+return result;
+```
+
+Mental Model:
+
+```text
+a ^ a = 0
+a ^ 0 = a
+
+Example:
+
+4 ^ 1 ^ 2 ^ 1 ^ 2
+
+= 4 ^ (1 ^ 1) ^ (2 ^ 2)
+
+= 4 ^ 0 ^ 0
+
+= 4
+```
+
+---
+
 # 📌 Legend
 
 - ⬜ Todo
@@ -127,10 +208,58 @@ for (let i = 1; i < nums.length; i++) {
 
 ---
 
-# 🎯 Next Problems
+# 🎯 Weekend Revision Plan
 
-- Max Consecutive Ones
-- Missing Number
-- Single Number
+## Saturday
 
-Goal: Complete Arrays (9/9) before moving to Linked Lists.
+Re-solve all 9 Array problems without looking at code.
+
+For each problem:
+
+1. Recall pattern.
+2. Write algorithm.
+3. Code from scratch.
+4. Dry run one example.
+
+If unable to solve in 10 minutes:
+
+```text
+Status = 🔁 Revisit
+```
+
+---
+
+## Sunday
+
+Revise patterns only.
+
+Focus on:
+
+1. Two Pointers (Array Compression)
+2. Two Pointers (Opposite Direction)
+3. Three Pointers (Reverse Merge)
+4. Running Minimum
+5. Running Count
+6. Mathematical Formula
+7. XOR
+
+Goal:
+
+```text
+Remember patterns,
+not problem solutions.
+```
+
+---
+
+# 🚀 Next Topic
+
+## 2. Linked List
+
+Start with:
+
+1. Design Linked List
+2. Middle of Linked List
+3. Reverse Linked List
+4. Linked List Cycle
+5. Palindrome Linked List
