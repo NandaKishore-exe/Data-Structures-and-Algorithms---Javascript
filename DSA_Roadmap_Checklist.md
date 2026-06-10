@@ -251,15 +251,3 @@ not problem solutions.
 ```
 
 ---
-
-# 🚀 Next Topic
-
-## 2. Linked List
-
-Start with:
-
-1. Design Linked List
-2. Middle of Linked List
-3. Reverse Linked List
-4. Linked List Cycle
-5. Palindrome Linked List
