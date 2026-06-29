@@ -204,3 +204,154 @@ Else
 
 Store current value
 ```
+
+---
+
+# Problem 2 - Find Maximum Element
+
+## Pattern
+
+Traversal (Running Answer Pattern)
+
+---
+
+## Recognition
+
+If the problem asks you to find:
+
+- Largest value
+- Best value
+- Highest score
+- Maximum profit
+- Greatest element
+
+Think:
+
+**Keep track of the best answer seen so far.**
+
+---
+
+## Brute Force
+
+### Intuition
+
+Compare every element with every other element to determine the largest value.
+
+### Algorithm
+
+1. Pick one element.
+2. Compare it with all other elements.
+3. If no larger element exists, it is the maximum.
+4. Return the maximum element.
+
+### Complexity
+
+Time: **O(n²)**
+
+Space: **O(1)**
+
+---
+
+## Optimized Approach
+
+### Intuition
+
+Instead of repeatedly comparing every element, maintain the current maximum while traversing the array once.
+
+### Algorithm
+
+1. If the array is empty, return `null`.
+2. Initialize `maxElement` with the first element.
+3. Traverse the array from index `1`.
+4. If the current element is greater than `maxElement`, update it.
+5. Continue until the end of the array.
+6. Return `maxElement`.
+
+---
+
+## Dry Run
+
+Input
+
+```text
+[5,3,9,2,7]
+```
+
+```
+max = 5
+
+3 > 5 ? No
+
+max = 5
+
+9 > 5 ? Yes
+
+max = 9
+
+2 > 9 ? No
+
+7 > 9 ? No
+
+Return 9
+```
+
+---
+
+## Complexity
+
+```
+Time  : O(n)
+
+Space : O(1)
+```
+
+---
+
+## Common Mistakes
+
+- Initializing `maxElement = 0`.
+- Starting the loop from index `0` instead of `1`.
+- Forgetting to handle an empty array.
+- Sorting the array instead of traversing once.
+
+---
+
+## Frontend Connection
+
+Finding:
+
+- Highest-rated product
+- Maximum revenue
+- Most active user
+- Highest score on a dashboard
+
+These all use the same traversal pattern.
+
+---
+
+## Interview Questions
+
+1. Why is sorting unnecessary?
+2. Why initialize with the first element instead of `0`?
+3. What happens if all elements are negative?
+4. How would you handle an empty array?
+
+---
+
+## Interview Takeaway
+
+### Pattern Tested
+
+Running Answer Pattern
+
+### Core Idea
+
+Maintain the best answer seen so far while traversing.
+
+### Related Problems
+
+- Find Minimum Element
+- Best Time to Buy & Sell Stock
+- Maximum Subarray
+- Maximum Depth of Binary Tree
+- Kadane's Algorithm
