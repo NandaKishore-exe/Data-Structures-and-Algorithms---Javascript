@@ -355,3 +355,300 @@ Maintain the best answer seen so far while traversing.
 - Maximum Subarray
 - Maximum Depth of Binary Tree
 - Kadane's Algorithm
+
+---
+
+# Problem 3 - Find Minimum Element
+
+## Pattern
+
+Traversal (Running Answer Pattern)
+
+---
+
+## Recognition
+
+If the problem asks you to find:
+
+- Smallest value
+- Lowest score
+- Minimum price
+- Lowest temperature
+
+Think:
+
+**Keep track of the smallest value seen so far.**
+
+---
+
+## Brute Force
+
+### Intuition
+
+Compare every element with every other element to determine the smallest value.
+
+### Algorithm
+
+1. Pick one element.
+2. Compare it with all remaining elements.
+3. If no smaller element exists, it is the minimum.
+4. Return the minimum element.
+
+### Complexity
+
+Time: **O(n²)**
+
+Space: **O(1)**
+
+---
+
+## Optimized Approach
+
+### Intuition
+
+Maintain the current minimum while traversing the array only once.
+
+### Algorithm
+
+1. If the array is empty, return `null`.
+2. Initialize `minElement` with the first element.
+3. Traverse from index `1`.
+4. If the current element is smaller than `minElement`, update it.
+5. Continue until the end of the array.
+6. Return `minElement`.
+
+---
+
+## Dry Run
+
+Input
+
+```text
+[5,3,9,2,7]
+```
+
+```text
+min = 5
+
+3 < 5 ? Yes
+
+min = 3
+
+9 < 3 ? No
+
+2 < 3 ? Yes
+
+min = 2
+
+7 < 2 ? No
+
+Return 2
+```
+
+---
+
+## Complexity
+
+```text
+Time  : O(n)
+
+Space : O(1)
+```
+
+---
+
+## Common Mistakes
+
+- Initializing `minElement = 0`.
+- Starting the loop from index `0`.
+- Forgetting to handle an empty array.
+- Sorting the array instead of traversing once.
+
+---
+
+## Frontend Connection
+
+Used for finding:
+
+- Lowest product price
+- Minimum response time
+- Lowest battery level
+- Cheapest plan
+
+---
+
+## Interview Questions
+
+1. Why initialize with the first element?
+2. What happens when all values are negative?
+3. Why not sort the array?
+4. How would you find both minimum and maximum in one traversal?
+
+---
+
+## Interview Takeaway
+
+### Pattern Tested
+
+Running Answer Pattern
+
+### Core Idea
+
+Maintain the best answer while traversing.
+
+### Related Problems
+
+- Find Maximum Element
+- Second Largest Element
+- Best Time to Buy & Sell Stock
+- Maximum Subarray
+
+---
+
+# Problem 4 - Remove Duplicates from Sorted Array
+
+## Pattern
+
+Read Pointer / Write Pointer
+
+---
+
+## Recognition
+
+Use this pattern when:
+
+- The array is sorted.
+- The problem asks for **in-place** modification.
+- You need to keep only valid elements.
+- Extra space is not allowed.
+
+---
+
+## Intuition
+
+Use two pointers with different responsibilities:
+
+- **Read Pointer (R):** Visits every element.
+- **Write Pointer (W):** Tracks where the next unique element should be placed.
+
+The write pointer only moves when a new unique value is found.
+
+---
+
+## Algorithm
+
+1. Handle the empty array.
+2. Initialize `write = 0`.
+3. Traverse the array using `read` from index `1`.
+4. If `nums[read] !== nums[write]`:
+   - Increment `write`.
+   - Copy `nums[read]` to `nums[write]`.
+
+5. Return `write + 1`.
+
+---
+
+## Dry Run
+
+Input
+
+```text
+[1,1,2,2,3]
+```
+
+```text
+W=0 R=1
+
+1 == 1
+
+Move R
+
+------------
+
+R=2
+
+2 != 1
+
+W++
+
+Copy 2
+
+Array
+
+[1,2,2,2,3]
+
+------------
+
+R=3
+
+2 == 2
+
+Move R
+
+------------
+
+R=4
+
+3 != 2
+
+W++
+
+Copy 3
+
+Array
+
+[1,2,3,2,3]
+```
+
+Return
+
+```text
+3
+```
+
+---
+
+## Complexity
+
+```text
+Time  : O(n)
+
+Space : O(1)
+```
+
+---
+
+## Common Mistakes
+
+- Comparing pointer indices instead of values.
+- Swapping instead of overwriting.
+- Forgetting `write++` before copying.
+- Returning `write` instead of `write + 1`.
+
+---
+
+## Frontend Connection
+
+This pattern is useful when filtering data in-place, compacting arrays, or removing invalid entries while preserving order without creating another array.
+
+---
+
+## Interview Takeaway
+
+### Pattern Tested
+
+Read Pointer / Write Pointer
+
+### Core Idea
+
+One pointer explores.
+
+One pointer builds the result.
+
+### Related Problems
+
+- Move Zeroes
+- Remove Element
+- Merge Sorted Array
+- String Compression
+- Partition Array

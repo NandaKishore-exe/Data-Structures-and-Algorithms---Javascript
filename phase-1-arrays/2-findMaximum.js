@@ -11,6 +11,8 @@ function findMaximum(nums) {
   return maxElement;
 }
 
-const nums = [];
+const nums = [5, 3, 9, 2, 7];
 
 console.log(findMaximum(nums));
+
+// Time Complexity - O(n) and Space Complexity O(1)
