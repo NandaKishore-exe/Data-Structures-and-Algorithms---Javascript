@@ -652,3 +652,86 @@ One pointer builds the result.
 - Merge Sorted Array
 - String Compression
 - Partition Array
+
+---
+
+# Problem 6 - Missing Number
+
+## Pattern
+
+HashMap Lookup / Mathematical Formula
+
+---
+
+## Recognition
+
+Use this pattern when:
+
+- Numbers belong to a fixed range.
+- Exactly one value is missing.
+- The problem guarantees distinct values.
+
+---
+
+## Solution 1 - HashMap
+
+### Intuition
+
+Store every number in a HashMap and check which expected number is missing.
+
+### Algorithm
+
+1. Create a HashMap.
+2. Store every number.
+3. Check numbers from `0` to `n`.
+4. Return the number that does not exist.
+
+### Complexity
+
+Time: **O(n)**
+
+Space: **O(n)**
+
+---
+
+## Solution 2 - Mathematical Formula
+
+### Intuition
+
+The sum of numbers from `0` to `n` is known.
+
+Missing Number = Expected Sum − Actual Sum
+
+### Formula
+
+Expected Sum
+
+n × (n + 1) / 2
+
+### Algorithm
+
+1. Calculate expected sum.
+2. Calculate actual array sum.
+3. Return the difference.
+
+### Complexity
+
+Time: **O(n)**
+
+Space: **O(1)**
+
+---
+
+## Common Mistakes
+
+- Using `< n` instead of `<= n`.
+- Forgetting the formula includes `n`.
+- Forgetting the numbers are guaranteed to be distinct.
+
+---
+
+## Interview Takeaway
+
+Always look at the problem constraints first.
+
+If the input guarantees a continuous range with one missing value, consider a mathematical approach before using extra memory.

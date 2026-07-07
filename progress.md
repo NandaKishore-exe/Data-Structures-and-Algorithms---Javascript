@@ -22,8 +22,8 @@
 | Traversal  | ✅ Find Maximum Element                | Easy       |   ✅   | ⭐⭐⭐⭐⭐ |    No    |
 | Traversal  | ✅ Find Minimum Element                | Easy       |   ✅   | ⭐⭐⭐⭐⭐ |    No    |
 | Traversal  | ✅ Remove Duplicates from Sorted Array | Easy       |   ✅   | ⭐⭐⭐⭐⭐ |    No    |
-| Traversal  | Move Zeroes                            | Easy       |   ⬜   |     -      |    -     |
-| Traversal  | Missing Number                         | Easy       |   ⬜   |     -      |    -     |
+| Traversal  | ✅ Move Zeroes                         | Easy       |   ✅   | ⭐⭐⭐⭐⭐ |    No    |
+| Traversal  | ✅ Missing Number                      | Easy       |   ✅   | ⭐⭐⭐⭐⭐ |    No    |
 | Prefix Sum | Running Sum of 1D Array                | Easy       |   ⬜   |     -      |    -     |
 | Prefix Sum | Find Pivot Index                       | Easy       |   ⬜   |     -      |    -     |
 | Prefix Sum | Range Sum Query                        | Easy       |   ⬜   |     -      |    -     |
@@ -42,25 +42,16 @@
 
 **Current Pattern:** two pointers
 
-**Completed:** **4 / 15**
+**Completed:** **6 / 15**
 
 ---
 
-# Revision
-
-| Problem                             | Confidence |
-| ----------------------------------- | ---------- |
-| Two Sum                             | ⭐⭐⭐⭐⭐ |
-| Find Maximum Element                | ⭐⭐⭐⭐⭐ |
-| Find Minimum Element                | ⭐⭐⭐⭐⭐ |
-| Remove Duplicates from Sorted Array | ⭐⭐⭐⭐⭐ |
-
----
-
-Current Patterns Learned
+# Current Patterns Learned
 
 ✅ HashMap Lookup Pattern
 
 ✅ Running Answer Pattern
 
 ✅ Read Pointer / Write Pointer Pattern
+
+✅ Mathematical Formula Pattern
