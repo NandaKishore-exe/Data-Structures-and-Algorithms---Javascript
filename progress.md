@@ -24,7 +24,7 @@
 | Traversal  | ✅ Remove Duplicates from Sorted Array | Easy       |   ✅   | ⭐⭐⭐⭐⭐ |    No    |
 | Traversal  | ✅ Move Zeroes                         | Easy       |   ✅   | ⭐⭐⭐⭐⭐ |    No    |
 | Traversal  | ✅ Missing Number                      | Easy       |   ✅   | ⭐⭐⭐⭐⭐ |    No    |
-| Prefix Sum | Running Sum of 1D Array                | Easy       |   ⬜   |     -      |    -     |
+| Prefix Sum | Running Sum of 1D Array                | Easy       |   ✅   | ⭐⭐⭐⭐⭐ |    No    |
 | Prefix Sum | Find Pivot Index                       | Easy       |   ⬜   |     -      |    -     |
 | Prefix Sum | Range Sum Query                        | Easy       |   ⬜   |     -      |    -     |
 | Greedy     | Best Time to Buy & Sell Stock          | Easy       |   ⬜   |     -      |    -     |

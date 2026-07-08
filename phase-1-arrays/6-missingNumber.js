@@ -37,7 +37,6 @@
 
 function missingNumber(nums) {
   const seen = new Map();
-  const n = nums.length;
   for (let i = 0; i < nums.length; i++) {
     seen.set(nums[i], true);
   }

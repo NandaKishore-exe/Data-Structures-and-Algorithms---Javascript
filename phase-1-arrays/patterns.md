@@ -735,3 +735,76 @@ Space: **O(1)**
 Always look at the problem constraints first.
 
 If the input guarantees a continuous range with one missing value, consider a mathematical approach before using extra memory.
+
+---
+
+# Problem 7 - Running Sum of 1D Array
+
+## Pattern
+
+Prefix Sum
+
+---
+
+## Recognition
+
+Use this pattern when:
+
+- You need cumulative totals.
+- Each answer depends on the previous answer.
+- You want to avoid recalculating sums repeatedly.
+
+---
+
+## Core Idea
+
+Instead of calculating the sum from the beginning every time, reuse the previous running sum.
+
+Running Sum = Previous Running Sum + Current Element
+
+---
+
+## Algorithm
+
+1. Create an empty result array.
+2. Initialize `sum = 0`.
+3. Traverse the array.
+4. Add the current element to `sum`.
+5. Store `sum` in the result array.
+6. Return the result.
+
+---
+
+## Complexity
+
+Time: O(n)
+
+Space: O(n)
+
+---
+
+## Common Mistakes
+
+- Recalculating the sum for every index (O(n²)).
+- Forgetting to update the running sum before storing it.
+- Modifying the original array when a new array is required.
+
+---
+
+## Frontend Connection
+
+Useful for:
+
+- Running account balance
+- Total calories consumed
+- Daily water intake
+- Analytics dashboards
+- Financial reports
+
+---
+
+## Interview Takeaway
+
+Ask yourself:
+
+> Can I reuse the previous result instead of calculating everything again?
