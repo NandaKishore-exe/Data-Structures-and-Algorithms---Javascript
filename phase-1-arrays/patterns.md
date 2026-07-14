@@ -899,3 +899,382 @@ rightSum = totalSum - leftSum - nums[i]
 Whenever you recalculate left and right sums for every index, ask:
 
 > "Can I compute the total once and derive one side from the other?"
+
+---
+
+# Problem 9 - Range Sum Query - Immutable
+
+## Pattern
+
+Prefix Sum
+
+---
+
+## Recognition
+
+Use this pattern when:
+
+- Multiple range sum queries need to be answered.
+- The array does not change (Immutable).
+- The brute-force solution repeatedly calculates sums over the same range.
+- Preprocessing the array once can make future queries much faster.
+
+---
+
+## Brute Force
+
+### Intuition
+
+For every query:
+
+1. Traverse from `left` to `right`.
+2. Add every element.
+3. Return the sum.
+
+### Algorithm
+
+1. Initialize `sum = 0`.
+2. Traverse from `left` to `right`.
+3. Add every element to `sum`.
+4. Return `sum`.
+
+### Complexity
+
+Time: **O(n)** per query
+
+Space: **O(1)**
+
+---
+
+## Optimized Solution (Prefix Sum)
+
+### Intuition
+
+Instead of recalculating the range sum every time:
+
+- Build a Prefix Sum array once.
+- Every query becomes a simple subtraction.
+
+The Prefix Sum array stores the cumulative sum from index `0` to the current index.
+
+Example:
+
+nums
+
+```
+[-2, 0, 3, -5, 2, -1]
+```
+
+Prefix Sum
+
+```
+[-2, -2, 1, -4, -2, -3]
+```
+
+---
+
+## Prefix Sum Formula
+
+If `left == 0`
+
+```text
+Answer = prefix[right]
+```
+
+Otherwise
+
+```text
+Answer = prefix[right] - prefix[left - 1]
+```
+
+---
+
+## Why `left - 1`?
+
+Remember this sentence:
+
+> **Subtract everything before the range starts.**
+
+Example:
+
+Need
+
+```text
+sumRange(2,5)
+```
+
+```
+Index
+
+0   1   2   3   4   5
+
+-2  0   3  -5   2  -1
+```
+
+`prefix[5]` contains
+
+```text
+-2 + 0 + 3 + (-5) + 2 + (-1)
+```
+
+To keep only
+
+```text
+3 + (-5) + 2 + (-1)
+```
+
+remove everything before index `2`.
+
+Everything before index `2` is stored in
+
+```text
+prefix[1]
+```
+
+Therefore
+
+```text
+prefix[5] - prefix[1]
+```
+
+---
+
+## Algorithm
+
+### Preprocessing
+
+1. Create an empty Prefix Sum array.
+2. Initialize `sum = 0`.
+3. Traverse the array.
+4. Add current element to `sum`.
+5. Store `sum` in the Prefix Sum array.
+
+---
+
+### Answering a Query
+
+If
+
+```text
+left == 0
+```
+
+Return
+
+```text
+prefix[right]
+```
+
+Otherwise
+
+Return
+
+```text
+prefix[right] - prefix[left - 1]
+```
+
+---
+
+## Complexity
+
+### Building Prefix Sum
+
+Time: **O(n)**
+
+Space: **O(n)**
+
+---
+
+### Each Query
+
+Time: **O(1)**
+
+Space: **O(1)**
+
+---
+
+## Why Is It Faster?
+
+### Brute Force
+
+Every query
+
+```
+Loop through the range
+```
+
+Time
+
+```
+O(n)
+```
+
+1000 Queries
+
+```
+O(1000 × n)
+```
+
+or generally
+
+```
+O(q × n)
+```
+
+---
+
+### Prefix Sum
+
+Build Prefix Array once
+
+```
+O(n)
+```
+
+Each query
+
+```
+One subtraction
+```
+
+Time
+
+```
+O(1)
+```
+
+Overall
+
+```
+O(n + q)
+```
+
+where
+
+- `n` = size of array
+- `q` = number of queries
+
+---
+
+## Common Mistakes
+
+❌ Using
+
+```text
+prefix[right] - prefix[left]
+```
+
+instead of
+
+```text
+prefix[right] - prefix[left - 1]
+```
+
+---
+
+❌ Forgetting the special case
+
+```text
+left == 0
+```
+
+---
+
+❌ Rebuilding the Prefix Sum array for every query.
+
+Build it **once**, reuse it for all queries.
+
+---
+
+## Frontend Engineering Connection
+
+Prefix Sum is useful in:
+
+- 📊 Analytics Dashboards
+- 💰 Expense Tracking
+- 🏋️ Fitness Apps (Calories / Water Intake)
+- 📈 Financial Charts
+- 📅 Calendar Statistics
+- 📉 Sales Reports
+
+Example:
+
+A fitness app stores daily calories.
+
+Instead of recalculating calories every time the user changes the date range, build the Prefix Sum once and answer every query instantly.
+
+---
+
+## Interview Takeaway
+
+When you see:
+
+- Multiple range sum queries
+- Immutable array
+- Repeated calculations
+
+Ask yourself:
+
+> **Can I preprocess the data once and answer every query in O(1)?**
+
+If yes,
+
+👉 Think **Prefix Sum**.
+
+---
+
+## Revision Notes
+
+### Running Sum
+
+```
+runningSum += nums[i]
+```
+
+↓
+
+Builds the Prefix Sum array.
+
+---
+
+### Prefix Sum Meaning
+
+```
+prefix[i]
+```
+
+means
+
+```
+Sum from index 0 to index i
+```
+
+---
+
+### Golden Formula
+
+If
+
+```
+left == 0
+```
+
+```
+answer = prefix[right]
+```
+
+Otherwise
+
+```
+answer = prefix[right] - prefix[left - 1]
+```
+
+---
+
+### Memory Trick
+
+Don't memorize the formula.
+
+Remember:
+
+> **Subtract everything before the range starts.**

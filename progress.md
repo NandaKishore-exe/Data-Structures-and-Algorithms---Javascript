@@ -26,7 +26,7 @@
 | Traversal  | ✅ Missing Number                      | Easy       |   ✅   | ⭐⭐⭐⭐⭐ |    No    |
 | Prefix Sum | Running Sum of 1D Array                | Easy       |   ✅   | ⭐⭐⭐⭐⭐ |    No    |
 | Prefix Sum | Find Pivot Index                       | Easy       |   ✅   | ⭐⭐⭐⭐⭐ |    No    |
-| Prefix Sum | Range Sum Query                        | Easy       |   ⬜   |     -      |    -     |
+| Prefix Sum | Range Sum Query                        | Easy       |   ✅   | ⭐⭐⭐⭐⭐ |    No    |
 | Greedy     | Best Time to Buy & Sell Stock          | Easy       |   ⬜   |     -      |    -     |
 | Greedy     | Maximum Subarray                       | Medium     |   ⬜   |     -      |    -     |
 | Sorting    | Merge Sorted Array                     | Easy       |   ⬜   |     -      |    -     |
@@ -40,9 +40,9 @@
 
 **Phase 1 → Arrays**
 
-**Current Pattern:** two pointers
+**Current Pattern:** prefix sum
 
-**Completed:** **6 / 15**
+**Completed:** **9 / 15**
 
 ---
 
