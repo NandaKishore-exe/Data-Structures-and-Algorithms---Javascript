@@ -808,3 +808,94 @@ Useful for:
 Ask yourself:
 
 > Can I reuse the previous result instead of calculating everything again?
+
+---
+
+# Problem 8 - Find Pivot Index
+
+## Pattern
+
+Prefix Sum
+
+---
+
+## Recognition
+
+Use this pattern when:
+
+- Comparing left and right sums.
+- Repeatedly calculating subarray sums.
+- A brute-force solution recalculates sums for every index.
+
+---
+
+## Brute Force
+
+### Idea
+
+For every index:
+
+1. Calculate left sum.
+2. Calculate right sum.
+3. Compare.
+
+### Complexity
+
+Time: O(n²)
+
+Space: O(1)
+
+---
+
+## Optimized Idea
+
+Instead of recalculating:
+
+- Compute `totalSum` once.
+- Maintain a running `leftSum`.
+- Derive `rightSum` using:
+
+rightSum = totalSum - leftSum - currentElement
+
+---
+
+## Algorithm
+
+1. Compute total sum.
+2. Initialize `leftSum = 0`.
+3. Traverse the array.
+4. Calculate `rightSum`.
+5. Compare `leftSum` and `rightSum`.
+6. If equal, return the current index.
+7. Update `leftSum`.
+8. Return `-1` if no pivot exists.
+
+---
+
+## Complexity
+
+Time: O(n)
+
+Space: O(1)
+
+---
+
+## Common Mistakes
+
+- Assuming the pivot is the middle element.
+- Including the pivot element in left/right sums.
+- Updating `leftSum` before comparison.
+
+---
+
+## Golden Formula
+
+rightSum = totalSum - leftSum - nums[i]
+
+---
+
+## Interview Takeaway
+
+Whenever you recalculate left and right sums for every index, ask:
+
+> "Can I compute the total once and derive one side from the other?"

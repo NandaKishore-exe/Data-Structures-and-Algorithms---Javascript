@@ -25,7 +25,7 @@
 | Traversal  | ✅ Move Zeroes                         | Easy       |   ✅   | ⭐⭐⭐⭐⭐ |    No    |
 | Traversal  | ✅ Missing Number                      | Easy       |   ✅   | ⭐⭐⭐⭐⭐ |    No    |
 | Prefix Sum | Running Sum of 1D Array                | Easy       |   ✅   | ⭐⭐⭐⭐⭐ |    No    |
-| Prefix Sum | Find Pivot Index                       | Easy       |   ⬜   |     -      |    -     |
+| Prefix Sum | Find Pivot Index                       | Easy       |   ✅   | ⭐⭐⭐⭐⭐ |    No    |
 | Prefix Sum | Range Sum Query                        | Easy       |   ⬜   |     -      |    -     |
 | Greedy     | Best Time to Buy & Sell Stock          | Easy       |   ⬜   |     -      |    -     |
 | Greedy     | Maximum Subarray                       | Medium     |   ⬜   |     -      |    -     |
