@@ -1278,3 +1278,337 @@ Don't memorize the formula.
 Remember:
 
 > **Subtract everything before the range starts.**
+
+---
+
+# Problem 10 - Best Time to Buy and Sell Stock
+
+## Pattern
+
+Greedy
+
+---
+
+## Recognition
+
+Use this pattern when:
+
+- Find maximum profit / minimum cost.
+- Only one traversal is needed.
+- The decision at the current step depends only on the best value seen so far.
+- You need to maximize or minimize a value while traversing.
+
+---
+
+## Brute Force
+
+### Intuition
+
+Try every possible buying day.
+
+For each buying day, try every possible future selling day.
+
+Calculate the profit and keep the maximum.
+
+---
+
+### Algorithm
+
+1. Pick a buying day.
+2. Check every future selling day.
+3. Calculate profit.
+4. Update maximum profit.
+5. Repeat for all buying days.
+
+---
+
+### Complexity
+
+Time: **O(n²)**
+
+Space: **O(1)**
+
+---
+
+# Why Brute Force is Slow
+
+Many comparisons are repeated.
+
+For every buying day we again scan all future days.
+
+Example
+
+```
+Buy Day 0
+
+→ Sell Day 1
+→ Sell Day 2
+→ Sell Day 3
+
+----------------
+
+Buy Day 1
+
+→ Sell Day 2
+→ Sell Day 3
+
+----------------
+
+Buy Day 2
+
+→ Sell Day 3
+```
+
+Lots of repeated work.
+
+---
+
+# Greedy Insight
+
+When standing on any day,
+
+you don't need to remember every previous price.
+
+You only need to remember
+
+> **The minimum price seen so far.**
+
+If today's price is
+
+```
+prices[i]
+```
+
+then today's profit is
+
+```
+prices[i] - minPrice
+```
+
+---
+
+# Greedy Algorithm
+
+Maintain two variables:
+
+```javascript
+minPrice;
+```
+
+Cheapest buying price seen so far.
+
+```javascript
+maxProfit;
+```
+
+Maximum profit found so far.
+
+For every day:
+
+1. Calculate today's profit.
+2. Update maximum profit.
+3. Update minimum price.
+
+---
+
+# Optimized Algorithm
+
+1. Initialize
+
+```
+minPrice = prices[0]
+maxProfit = 0
+```
+
+2. Traverse from index 1.
+
+3. Calculate
+
+```
+currentProfit = prices[i] - minPrice
+```
+
+4. Update
+
+```
+maxProfit = max(maxProfit, currentProfit)
+```
+
+5. If today's price is smaller,
+
+update
+
+```
+minPrice = prices[i]
+```
+
+6. Return
+
+```
+maxProfit
+```
+
+---
+
+# Complexity
+
+Time: **O(n)**
+
+Space: **O(1)**
+
+---
+
+# Dry Run
+
+Example
+
+```
+prices = [7,1,5,3,6,4]
+```
+
+| Day | Price | Min Price | Profit Today | Max Profit |
+| --- | ----: | --------: | -----------: | ---------: |
+| 0   |     7 |         7 |            0 |          0 |
+| 1   |     1 |         1 |           -6 |          0 |
+| 2   |     5 |         1 |            4 |          4 |
+| 3   |     3 |         1 |            2 |          4 |
+| 4   |     6 |         1 |            5 |          5 |
+| 5   |     4 |         1 |            3 |          5 |
+
+Answer
+
+```
+5
+```
+
+---
+
+# Common Mistakes
+
+❌ Find the global minimum first.
+
+Example
+
+```
+[2,10,1,5]
+```
+
+Global minimum is
+
+```
+1
+```
+
+Profit becomes
+
+```
+5 - 1 = 4
+```
+
+Wrong.
+
+Correct answer
+
+```
+2 -> 10
+
+Profit = 8
+```
+
+---
+
+❌ Using two loops.
+
+The whole point of Greedy is to solve it in one traversal.
+
+---
+
+❌ Updating `minPrice` first and then calculating today's profit.
+
+Correct order:
+
+```
+Today's Profit
+
+↓
+
+Update maxProfit
+
+↓
+
+Update minPrice
+```
+
+---
+
+# Interview Takeaway
+
+Ask yourself:
+
+> **What is the best value I've seen so far?**
+
+Store that value while traversing.
+
+This is one of the most common Greedy interview patterns.
+
+---
+
+# Revision Notes
+
+### Maintain
+
+```
+minPrice
+```
+
+and
+
+```
+maxProfit
+```
+
+---
+
+### Formula
+
+```
+currentProfit = prices[i] - minPrice
+```
+
+---
+
+### Update Order
+
+```
+1. Calculate today's profit
+
+↓
+
+2. Update maxProfit
+
+↓
+
+3. Update minPrice
+```
+
+---
+
+### Memory Trick
+
+Don't search for the smallest price in the entire array.
+
+Instead remember:
+
+> **The cheapest buying opportunity seen so far.**
+
+---
+
+# Pattern Summary
+
+Running Maximum ✔️
+
+Running Minimum ✔️
+
+Greedy Decision ✔️
+
+Single Traversal ✔️

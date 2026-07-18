@@ -27,7 +27,7 @@
 | Prefix Sum | ✅ Running Sum of 1D Array             | Easy       |   ✅   | ⭐⭐⭐⭐⭐ |    No    |
 | Prefix Sum | ✅ Find Pivot Index                    | Easy       |   ✅   | ⭐⭐⭐⭐⭐ |    No    |
 | Prefix Sum | ✅ Range Sum Query                     | Easy       |   ✅   | ⭐⭐⭐⭐⭐ |    No    |
-| Greedy     | Best Time to Buy & Sell Stock          | Easy       |   ⬜   |     -      |    -     |
+| Greedy     | ✅ Best Time to Buy & Sell Stock       | Easy       |   ✅   | ⭐⭐⭐⭐⭐ |    No    |
 | Greedy     | Maximum Subarray                       | Medium     |   ⬜   |     -      |    -     |
 | Sorting    | Merge Sorted Array                     | Easy       |   ⬜   |     -      |    -     |
 | Sorting    | Squares of a Sorted Array              | Easy       |   ⬜   |     -      |    -     |
