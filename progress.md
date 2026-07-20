@@ -28,7 +28,7 @@
 | Prefix Sum | ✅ Find Pivot Index                    | Easy       |   ✅   | ⭐⭐⭐⭐⭐ |    No    |
 | Prefix Sum | ✅ Range Sum Query                     | Easy       |   ✅   | ⭐⭐⭐⭐⭐ |    No    |
 | Greedy     | ✅ Best Time to Buy & Sell Stock       | Easy       |   ✅   | ⭐⭐⭐⭐⭐ |    No    |
-| Greedy     | Maximum Subarray                       | Medium     |   ⬜   |     -      |    -     |
+| Greedy     | ✅ Maximum Subarray                    | Medium     |   ✅   | ⭐⭐⭐⭐⭐ |    No    |
 | Sorting    | Merge Sorted Array                     | Easy       |   ⬜   |     -      |    -     |
 | Sorting    | Squares of a Sorted Array              | Easy       |   ⬜   |     -      |    -     |
 | Sorting    | Majority Element                       | Easy       |   ⬜   |     -      |    -     |

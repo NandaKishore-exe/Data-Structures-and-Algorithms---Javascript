@@ -1612,3 +1612,405 @@ Running Minimum ✔️
 Greedy Decision ✔️
 
 Single Traversal ✔️
+
+# Pattern: Kadane's Algorithm (Maximum Subarray)
+
+## Problem
+
+Find the contiguous subarray having the largest sum.
+
+Example:
+
+Input:
+
+```text
+[-2,1,-3,4,-1,2,1,-5,4]
+```
+
+Output:
+
+```text
+6
+```
+
+Subarray:
+
+```text
+[4,-1,2,1]
+```
+
+---
+
+# Pattern Recognition
+
+Ask yourself:
+
+> I need the maximum sum of a contiguous subarray.
+
+Look for these keywords:
+
+- Maximum Sum
+- Contiguous Subarray
+- Largest Sum
+- Continuous Elements
+
+These usually indicate **Kadane's Algorithm**.
+
+---
+
+# Thinking Process
+
+## Brute Force (O(n³))
+
+Generate every possible subarray.
+
+For every subarray:
+
+- Calculate its sum
+- Update the maximum
+
+Three loops:
+
+```text
+i -> Starting index
+
+j -> Ending index
+
+k -> Calculate sum
+```
+
+Time Complexity:
+
+```
+O(n³)
+```
+
+---
+
+## Optimization 1 (O(n²))
+
+Observation:
+
+While extending a subarray,
+
+```text
+[5]
+
+↓
+
+[5,1]
+
+↓
+
+[5,1,4]
+```
+
+We are recalculating
+
+```text
+5
+```
+
+again and again.
+
+Instead,
+
+keep a running sum.
+
+```javascript
+currentSum += nums[j];
+```
+
+Now only two loops are needed.
+
+Time Complexity:
+
+```
+O(n²)
+```
+
+---
+
+## Optimization 2 (Kadane's Algorithm)
+
+Key Observation:
+
+If the running sum becomes negative,
+
+it can only reduce future sums.
+
+Example:
+
+```text
+Current Sum = -5
+
+Next Number = 10
+
+Continue
+
+↓
+
+-5 + 10 = 5
+
+Start Fresh
+
+↓
+
+10
+```
+
+Always choose
+
+```text
+10
+```
+
+because the negative prefix hurts the future answer.
+
+---
+
+# Greedy Decision
+
+At every element ask one question:
+
+```text
+Should I continue the previous subarray?
+
+OR
+
+Should I start a new subarray?
+```
+
+Decision:
+
+```javascript
+currentSum = Math.max(nums[i], currentSum + nums[i]);
+```
+
+Meaning:
+
+```text
+Start Fresh
+
+OR
+
+Continue Previous Subarray
+```
+
+Choose whichever gives a larger sum.
+
+---
+
+# Update Global Maximum
+
+After deciding the current subarray,
+
+check if it is the best one seen so far.
+
+```javascript
+maxSum = Math.max(maxSum, currentSum);
+```
+
+---
+
+# Final Algorithm
+
+1. Initialize
+
+```javascript
+currentSum = nums[0];
+maxSum = nums[0];
+```
+
+2. Traverse from index 1
+
+3. Decide
+
+```javascript
+currentSum = Math.max(nums[i], currentSum + nums[i]);
+```
+
+4. Update answer
+
+```javascript
+maxSum = Math.max(maxSum, currentSum);
+```
+
+5. Return
+
+```javascript
+return maxSum;
+```
+
+---
+
+# Time Complexity
+
+```
+O(n)
+```
+
+One traversal.
+
+---
+
+# Space Complexity
+
+```
+O(1)
+```
+
+Only two variables.
+
+---
+
+# Interview Tips
+
+### If currentSum is positive
+
+Keep it.
+
+Example:
+
+```text
+currentSum = 3
+
+Next = 6
+
+↓
+
+3 + 6 = 9
+
+>
+
+6
+```
+
+Continue.
+
+---
+
+### If currentSum is negative
+
+Discard it.
+
+Example:
+
+```text
+currentSum = -4
+
+Next = 8
+
+↓
+
+-4 + 8 = 4
+
+<
+
+8
+```
+
+Start a new subarray.
+
+---
+
+# Mental Model
+
+Imagine carrying a bag.
+
+Positive bag:
+
+```text
++5
+```
+
+Keep carrying it because it increases your future total.
+
+Negative bag:
+
+```text
+-5
+```
+
+Throw it away because it reduces every future total.
+
+---
+
+# Common Mistakes
+
+❌ Initializing
+
+```javascript
+let maxSum = 0;
+```
+
+Fails for
+
+```text
+[-2,-1,-3]
+```
+
+Correct:
+
+```javascript
+let maxSum = nums[0];
+```
+
+or
+
+```javascript
+let maxSum = -Infinity;
+```
+
+---
+
+❌ Resetting whenever currentSum decreases.
+
+Wrong.
+
+Only compare:
+
+```javascript
+nums[i];
+
+vs;
+
+currentSum + nums[i];
+```
+
+---
+
+# Pattern Summary
+
+Keywords:
+
+- Maximum Sum
+- Contiguous Subarray
+
+Technique:
+
+Kadane's Algorithm
+
+Decision:
+
+```javascript
+currentSum = Math.max(nums[i], currentSum + nums[i]);
+```
+
+Answer:
+
+```javascript
+maxSum = Math.max(maxSum, currentSum);
+```
+
+Time:
+
+```
+O(n)
+```
+
+Space:
+
+```
+O(1)
+```
