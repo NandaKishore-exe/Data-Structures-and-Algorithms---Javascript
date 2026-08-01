@@ -6,18 +6,12 @@
 
 ### Problems
 
-- Two Sum (Brute Force)
 - Find Maximum Element
 - Find Minimum Element
 
 ### Pattern
 
-Traverse the array once while maintaining the required answer.
-
-### Complexity
-
-- Time: O(n)
-- Space: O(1)
+Traverse once while maintaining the required answer.
 
 ---
 
@@ -42,13 +36,7 @@ Store previously seen values for O(1) lookup.
 
 ### Pattern
 
-Maintain two pointers performing different responsibilities.
-
-Common use cases:
-
-- Read / Write Pointer
-- Left / Right Pointer
-- Slow / Fast Pointer
+Maintain two pointers with different responsibilities.
 
 ---
 
@@ -62,27 +50,11 @@ Common use cases:
 
 ### Pattern
 
-Reuse previously computed cumulative sums.
-
-Formula:
-
 ```text
 prefix[i] = prefix[i-1] + nums[i]
 ```
 
-Range Sum:
-
-```text
-L = 0
-
-answer = prefix[R]
-```
-
-```text
-L > 0
-
-answer = prefix[R] - prefix[L-1]
-```
+Reuse previously computed cumulative sums.
 
 ---
 
@@ -96,14 +68,6 @@ answer = prefix[R] - prefix[L-1]
 
 Maintain the minimum value seen so far.
 
-At every step:
-
-```text
-Profit = Current Price - Minimum Price
-```
-
-Update answer if larger.
-
 ---
 
 ## 6. Kadane's Algorithm
@@ -116,24 +80,10 @@ Update answer if larger.
 
 Maintain the maximum sum ending at the current index.
 
-Formula
-
 ```javascript
 currentSum = Math.max(nums[i], currentSum + nums[i]);
-
 maxSum = Math.max(maxSum, currentSum);
 ```
-
-Observation
-
-Negative running sums reduce future sums.
-
-Drop them and start a new subarray.
-
-Complexity
-
-- Time: O(n)
-- Space: O(1)
 
 ---
 
@@ -145,35 +95,15 @@ Complexity
 
 ### Pattern
 
-Unlike Kadane's Algorithm, maintain both:
+Maintain two running states.
 
-- Maximum Product ending at current index.
-- Minimum Product ending at current index.
+- maxProduct
+- minProduct
 
 Reason
 
 ```text
 Negative × Negative = Positive
-```
-
-A very small (negative) product today can become the largest product tomorrow.
-
-Algorithm
-
-At every element, consider three possibilities.
-
-```text
-1. Start a new subarray
-
-current
-
-2. Extend previous maximum product
-
-current × previousMax
-
-3. Extend previous minimum product
-
-current × previousMin
 ```
 
 Formula
@@ -193,6 +123,58 @@ Complexity
 
 ---
 
+## 8. Prefix Product
+
+### Problems
+
+- Product of Array Except Self
+
+### Pattern
+
+Instead of recalculating products repeatedly, precompute:
+
+- Left Products
+- Right Products
+
+Formula
+
+```javascript
+left[0] = 1;
+
+for (let i = 1; i < n; i++) {
+  left[i] = left[i - 1] * nums[i - 1];
+}
+```
+
+```javascript
+right[n - 1] = 1;
+
+for (let i = n - 2; i >= 0; i--) {
+  right[i] = right[i + 1] * nums[i + 1];
+}
+```
+
+Final Answer
+
+```javascript
+answer[i] = left[i] * right[i];
+```
+
+Observation
+
+Exactly like Prefix Sum, but replace addition (`+`) with multiplication (`×`).
+
+Complexity
+
+- Time: O(n)
+- Space: O(n)
+
+Advanced Optimization
+
+Reuse the output array to reduce extra space to **O(1)** (excluding the output array).
+
+---
+
 # Patterns Mastered
 
 ✅ Traversal
@@ -208,3 +190,5 @@ Complexity
 ✅ Kadane's Algorithm
 
 ✅ Maximum Product Subarray
+
+✅ Prefix Product
